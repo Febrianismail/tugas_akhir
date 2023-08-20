@@ -8,6 +8,10 @@ $query = mysqli_query($konek, $tampil_nik);
 $data = mysqli_fetch_array($query, MYSQLI_BOTH);
 $nik = $data['nik'];
 $nama = $data['nama'];
+$tempat1 = $data['tempat_lahir'];
+$tgl1 = $data['tanggal_lahir'];
+$jk = $data['jekel'];
+$agama1 = $data['agama'];
 ?>
 <div class="page-inner">
     <div class="row">
@@ -23,39 +27,44 @@ $nama = $data['nama'];
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="hidden" class="form-control" value="<?= $nik; ?>">
-                                    <input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+                                    <input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
 
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
+                                    <input type="hidden" class="form-control" value="<?= $nama; ?>">
                                     <input type="text" name="nama" class="form-control" value="<?= $nama; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor KK</label>
-                                    <input type="text" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
+                                    <input type="number" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
-                                    <input type="text" name="tempatlahir" class="form-control" placeholder="Tempat Lahir Anda">
+                                    <input type="hidden" class="form-control" value="<?= $tempat1; ?>">
+                                    <input type="text" name="tempatlahir" class="form-control" placeholder="Tempat Lahir Anda" value="<?= $tempat1; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
-                                    <input type="date" name="tanggallahir" class="form-control">
+                                    <input type="hidden" class="form-control" value="<?= $tgl1; ?>">
+                                    <input type="date" name="tanggallahir" class="form-control" value="<?= $tgl1; ?>">
                                 </div>
-                                <div class="form-check">
-                                    <label>Jenis Kelamin</label><br />
+                                <div class="form-group">
+                                    <label class="mb-2">Jenis Kelamin</label>
+                                    <br>
                                     <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" checked="">
+                                        <input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
                                         <span class="form-radio-sign">Laki-Laki</span>
                                     </label>
                                     <label class="form-radio-label ml-3">
-                                        <input class="form-radio-input" type="radio" name="jk" value="Perempuan">
+                                        <input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
                                         <span class="form-radio-sign">Perempuan</span>
                                     </label>
                                 </div>
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <input type="text" name="agama" class="form-control" placeholder="agama anda ">
+                                    <input type="hidden" class="form-control" value="<?= $agama1; ?>">
+                                    <input type="text" name="agama" class="form-control" placeholder="agama anda " value="<?= $agama1; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Status Perkawinan</label>

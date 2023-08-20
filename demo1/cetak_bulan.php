@@ -30,50 +30,98 @@ if (isset($_GET['bulan'])) {
     $sql = "SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_sktm.acc,
-        data_request_sktm.tanggal_request,
-		data_request_sktm.keperluan,
-		data_request_sktm.request
+		t_sktm.acc,
+        t_sktm.tanggal_request,
+		t_sktm.keperluan,
+		t_sktm.request
 	FROM
 		data_user
-	INNER JOIN data_request_sktm ON data_request_sktm.nik = data_user.nik
-    WHERE month(data_request_sktm.acc) = '$bln'
+	INNER JOIN t_sktm ON t_sktm.nik = data_user.nik
+    WHERE month(t_sktm.acc) = '$bln'
     UNION 
     SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skp.acc,
-        data_request_skp.tanggal_request,
-		data_request_skp.keperluan,
-		data_request_skp.request
+		t_skck.acc,
+        t_skck.tanggal_request,
+		t_skck.keperluan,
+		t_skck.request
 	FROM
 		data_user
-	INNER JOIN data_request_skp ON data_request_skp.nik = data_user.nik
-    WHERE month(data_request_skp.acc) = '$bln'
+	INNER JOIN t_skck ON t_skck.nik = data_user.nik
+    WHERE month(t_skck.acc) = '$bln'
     UNION
     SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_sku.acc,
-        data_request_sku.tanggal_request,
-		data_request_sku.keperluan,
-		data_request_sku.request
+		t_sku.acc,
+        t_sku.tanggal_request,
+		t_sku.keperluan,
+		t_sku.request
 	FROM
 		data_user
-	INNER JOIN data_request_sku ON data_request_sku.nik = data_user.nik
-    WHERE month(data_request_sku.acc) = '$bln'
+	INNER JOIN t_sku ON t_sku.nik = data_user.nik
+    WHERE month(t_sku.acc) = '$bln'
     UNION
     SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skd.acc,
-        data_request_skd.tanggal_request,
-		data_request_skd.keperluan,
-		data_request_skd.request
+		t_skdu.acc,
+        t_skdu.tanggal_request,
+		t_skdu.keperluan,
+		t_skdu.request
 	FROM
 		data_user
-	INNER JOIN data_request_skd ON data_request_skd.nik = data_user.nik
-    WHERE month(data_request_skd.acc) = '$bln'
+	INNER JOIN t_skdu ON t_skdu.nik = data_user.nik
+    WHERE month(t_skdu.acc) = '$bln'
+    UNION
+    SELECT
+		data_user.nik,
+		data_user.nama,
+		t_keramaian.acc,
+        t_keramaian.tanggal_request,
+		t_keramaian.keperluan,
+		t_keramaian.request
+	FROM
+		data_user
+	INNER JOIN t_keramaian ON t_keramaian.nik = data_user.nik
+    WHERE month(t_keramaian.acc) = '$bln'
+    UNION
+    SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pernyataan.acc,
+        t_pernyataan.tanggal_request,
+		t_pernyataan.keperluan,
+		t_pernyataan.request
+	FROM
+		data_user
+	INNER JOIN t_pernyataan ON t_pernyataan.nik = data_user.nik
+    WHERE month(t_pernyataan.acc) = '$bln'
+    UNION
+    SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pindah_nikah.acc,
+        t_pindah_nikah.tanggal_request,
+		t_pindah_nikah.keperluan,
+		t_pindah_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_pindah_nikah ON t_pindah_nikah.nik = data_user.nik
+    WHERE month(t_pindah_nikah.acc) = '$bln'
+    UNION
+    SELECT
+		data_user.nik,
+		data_user.nama,
+		t_blm_nikah.acc,
+        t_blm_nikah.tanggal_request,
+		t_blm_nikah.keperluan,
+		t_blm_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_blm_nikah ON t_blm_nikah.nik = data_user.nik
+    WHERE month(t_blm_nikah.acc) = '$bln'
     ";
 
     if ($bln == "1") {
@@ -116,7 +164,7 @@ if (isset($_GET['bulan'])) {
     <body>
         <table border="0" align="center">
             <tr>
-                <td><img src="img/kudus.png" width="70" height="87" alt=""></td>
+                <td><img src="img/tlogomas.png" width="70" height="87" alt=""></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -218,7 +266,7 @@ if (isset($_GET['bulan'])) {
         <br>
         <table border='0' align="right">
             <tr>
-                <td style="text-align: center"><b>Kudus, <?php echo date('d F Y'); ?></b></td>
+                <td style="text-align: center"><b>Malang, <?php echo date('d F Y'); ?></b></td>
             </tr>
         </table>
         <br><br><br><br><br>
@@ -227,7 +275,7 @@ if (isset($_GET['bulan'])) {
                 <td style="text-align: center"><b>Lurah Tlogomas</b></td>
             </tr>
             <tr>
-                <td style="text-align: center"><b>Agus Supriyanto</b></td>
+                <td style="text-align: center"><b>(ANDI AISYAH MUHSIN,STP,M.Si)</b></td>
             </tr>
         </table>
     </body>

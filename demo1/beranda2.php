@@ -236,7 +236,7 @@ if ($hak_akses == "Staf") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_sku">
+							<a href="?halaman=sudah_acc_nikah">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-success bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -247,7 +247,7 @@ if ($hak_akses == "Staf") {
 								<div class="numbers">
 									<p class="card-category">Surat Keterangan Nikah</p>
 									<?php
-									$sql = "SELECT * FROM t_skdu WHERE status=0";
+									$sql = "SELECT * FROM t_nikah WHERE status=0";
 									$query = mysqli_query($konek, $sql);
 									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 									$count = mysqli_num_rows($query);
@@ -306,7 +306,7 @@ if ($hak_akses == "Staf") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_sku">
+							<a href="?halaman=sudah_acc_pindah_nikah">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-success bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -317,7 +317,7 @@ if ($hak_akses == "Staf") {
 								<div class="numbers">
 									<p class="card-category">Surat Keterangan Pindah Nikah</p>
 									<?php
-									$sql = "SELECT * FROM data_request_sku WHERE status=0";
+									$sql = "SELECT * FROM t_pindah_nikah WHERE status=0";
 									$query = mysqli_query($konek, $sql);
 									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 									$count = mysqli_num_rows($query);
@@ -338,42 +338,7 @@ if ($hak_akses == "Staf") {
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="card card-stats card-round">
-					<div class="card-body">
-						<div class="row align-items-center">
-							<a href="?halaman=sudah_acc_sku">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-success bubble-shadow-small">
-										<i class="flaticon-envelope-1"></i>
-									</div>
-								</div>
-							</a>
-							<div class="col col-stats ml-3 ml-sm-0">
-								<div class="numbers">
-									<p class="card-category">Surat Keterangan Pindah Nikah</p>
-									<?php
-									$sql = "SELECT * FROM data_request_sku WHERE status=0";
-									$query = mysqli_query($konek, $sql);
-									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
-									$count = mysqli_num_rows($query);
-									$status = $data['status'];
 
-									// if($status=="1"){
-									// 	$count ="Belum ada request";
-									// }
-
-
-									?>
-									<h4 class="card-title"><?php echo $count; ?></h4>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 <?php
@@ -406,7 +371,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKTM</p>
+									<p class="card-category">Surat Keterangan Tidak Mampu</p>
 									<?php
 									$sql = "SELECT * FROM t_sktm WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -436,7 +401,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKU</p>
+									<p class="card-category">Surat Keterangan Usaha</p>
 									<?php
 									$sql = "SELECT * FROM t_sku WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -465,7 +430,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKKRMN</p>
+									<p class="card-category">Surat izin Keramaian</p>
 									<?php
 									$sql = "SELECT * FROM t_keramaian WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -495,7 +460,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKDU</p>
+									<p class="card-category">Surat Keterangan Domisli Usaha</p>
 									<?php
 									$sql = "SELECT * FROM t_skdu WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -525,7 +490,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKCK</p>
+									<p class="card-category">Surat keterangan catatan kepolisian</p>
 									<?php
 									$sql = "SELECT * FROM t_skck WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -555,7 +520,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKP</p>
+									<p class="card-category">Surat Pernyataan</p>
 									<?php
 									$sql = "SELECT * FROM t_pernyataan WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -576,7 +541,7 @@ if ($hak_akses == "Staf") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=belum_acc_sku">
+							<a href="?halaman=belum_acc_nikah">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-success bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -585,7 +550,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKN</p>
+									<p class="card-category">Surat Keterangan Nikah</p>
 									<?php
 									$sql = "SELECT * FROM t_nikah WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -615,7 +580,7 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">Surat Keterangan Belum Nikah</p>
+									<p class="card-category">Surat Belum Nikah</p>
 									<?php
 									$sql = "SELECT * FROM t_blm_nikah WHERE status=1";
 									$query = mysqli_query($konek, $sql);
@@ -636,7 +601,7 @@ if ($hak_akses == "Staf") {
 				<div class="card card-stats card-round">
 					<div class="card-body">
 						<div class="row align-items-center">
-							<a href="?halaman=belum_acc_skp">
+							<a href="?halaman=belum_acc_pindah_nikah">
 								<div class="col-icon">
 									<div class="icon-big text-center icon-warning bubble-shadow-small">
 										<i class="flaticon-envelope-1"></i>
@@ -645,9 +610,9 @@ if ($hak_akses == "Staf") {
 							</a>
 							<div class="col col-stats ml-3 ml-sm-0">
 								<div class="numbers">
-									<p class="card-category">SKP</p>
+									<p class="card-category">Surat Pindah Nikah</p>
 									<?php
-									$sql = "SELECT * FROM data_request_skp WHERE status=1";
+									$sql = "SELECT * FROM t_pindah_nikah WHERE status=1";
 									$query = mysqli_query($konek, $sql);
 									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
 									$count = mysqli_num_rows($query);
@@ -662,36 +627,7 @@ if ($hak_akses == "Staf") {
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-3">
-				<div class="card card-stats card-round">
-					<div class="card-body">
-						<div class="row align-items-center">
-							<a href="?halaman=belum_acc_skd">
-								<div class="col-icon">
-									<div class="icon-big text-center icon-secondary bubble-shadow-small">
-										<i class="flaticon-envelope-1"></i>
-									</div>
-								</div>
-							</a>
-							<div class="col col-stats ml-3 ml-sm-0">
-								<div class="numbers">
-									<p class="card-category">SKD</p>
-									<?php
-									$sql = "SELECT * FROM t_skdu WHERE status=1";
-									$query = mysqli_query($konek, $sql);
-									$data = mysqli_fetch_array($query, MYSQLI_BOTH);
-									$count = mysqli_num_rows($query);
-									$status = $data['status'];
 
-
-									?>
-									<h4 class="card-title"><?php echo $count; ?></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 <?php

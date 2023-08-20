@@ -84,16 +84,20 @@ if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
             $ket = "Surat sedang diperiksa oleh sekertaris";
-            $ubah = "UPDATE t_pernyataan set status =1 ,keterangan='$ket' where id_pernyataan = $value";
+            $tgl = date('Y-m-d');
+
+            // echo $value;
+            // $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+            $ubah = "UPDATE t_pernyataan SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_pernyataan=" . $value;
 
             $query = mysqli_query($konek, $ubah);
 
             if ($query) {
                 echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>";
-                echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sp">';
+                echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sp">';
             } else {
                 echo "<script language='javascript'>swal('Gagal...', 'ACC Staf Gagal!', 'error');</script>";
-                echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sp">';
+                echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sp">';
             }
         }
     }

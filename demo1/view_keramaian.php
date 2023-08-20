@@ -267,12 +267,12 @@ if (isset($_GET['id_keramaian'])) {
                             <tr>
                                 <th></th>
                                 <th width="100px"></th>
-                                <th align="center">MALANG, <?php echo $format4; ?></th>
+                                <th>MALANG, </th>
                             </tr>
                             <tr>
                                 <td>Tanda tangan <br> Yang bersangkutan </td>
                                 <td></td>
-                                <td align="center">LURAH TLOGOMAS</td>
+                                <td>LURAH TLOGOMAS</td>
                             </tr>
                             <tr>
                                 <td rowspan="15"></td>

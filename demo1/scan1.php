@@ -20,7 +20,7 @@
 
                             $query = mysqli_query($konek, $tampilkandataskck);
                             $dataskck = mysqli_fetch_array($query, MYSQLI_BOTH);
-                            echo $dataskck['id_skck'];
+
 
                             $nik = '';
                             $idskck = '';
@@ -43,8 +43,8 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">Scan KK</li>
                                     <li class="list-group-item">Scan KTP</li>
-                                    <li class="list-group-item">Scan surat pernyatan rt/rw</li>
-                                    <li class="list-group-item">Foto Tempat Usaha</li>
+                                    <li class="list-group-item">Scan surat pengantar rt/rw</li>
+
                                 </ul>
                             </div>
 
@@ -136,7 +136,7 @@
                                     if (!$resultBerkas) {
                                         echo "Erro : " . mysqli_error($konek);
                                     }
-                                    echo '<meta http-equiv="refresh" content="3; url=?halaman=request_skck&id_skck=' . $paramValuesId['id_skck'] . '">';
+                                    echo '<meta http-equiv="refresh" content="0; url=?halaman=scan1">';
                                 } else {
                                     echo 'belum memilih jenis persyaratan';
                                 }
@@ -167,7 +167,7 @@
                                 if (!$result) {
                                     echo "Error: " . mysqli_error($konek);
                                 }
-                                echo '<meta http-equiv="refresh" content="3; url=?halaman=request_skck&id_skck=' . $paramValuesId['id_skck'] . '">';
+                                echo '<meta http-equiv="refresh" content="0; url=?halaman=scan1">';
                             }
 
                             ?>

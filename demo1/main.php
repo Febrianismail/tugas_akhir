@@ -70,6 +70,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'request_sp';
 					include 'request_sp.php';
 					break;
+				case 'request_pindah_nikah';
+					include 'request_pindah_nikah.php';
+					break;
 				case 'request_skck';
 					include 'request_skck.php';
 					break;
@@ -166,8 +169,17 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 				case 'ubah_user';
 					include 'ubah_user.php';
 					break;
+				case 'ubah_request_blm_nikah';
+					include 'ubah_request_blm_nikah.php';
+					break;
+				case 'ubah_request_sp';
+					include 'ubah_request_sp.php';
+					break;
 				case 'ubah_sktm';
 					include 'ubah_request_sktm.php';
+					break;
+				case 'ubah_skck';
+					include 'ubah_request_skck.php';
 					break;
 				case 'ubah_sku';
 					include 'ubah_request_sku.php';
@@ -189,6 +201,9 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 					break;
 				case 'scan';
 					include 'scan.php';
+					break;
+				case 'scanpindahnikah';
+					include 'scan_pindah_nikah.php';
 					break;
 				case 'scan1';
 					include 'scan1.php';
@@ -231,6 +246,21 @@ if (isset($_SESSION['password']) == "" || ($_SESSION['hak_akses']) == "") {
 					break;
 				case 'detail_keramaian_request';
 					include 'detail_keramaian_request.php';
+					break;
+				case 'detail_nikah_request';
+					include 'detail_nikah_request.php';
+					break;
+				case 'upload_cetak_file';
+					include 'upload_file.php';
+					break;
+				case 'ubah_request_nikah';
+					include 'ubah_request_nikah.php';
+					break;
+				case 'ubah_request_pindah';
+					include 'ubah_request_pindah_nikah.php';
+					break;
+				case 'detail_pindah_nikah_request';
+					include 'detail_pindah_nikah_request.php';
 					break;
 
 				default:

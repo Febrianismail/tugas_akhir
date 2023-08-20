@@ -14,7 +14,7 @@
 				<div class="card-body">
 					<form method="POST">
 						<div class="table-responsive">
-							<table id="add4" class="display table table-striped table-hover">
+							<table id="add7" class="display table table-striped table-hover">
 								<thead>
 									<tr>
 										<th>Tanggal Request</th>
@@ -82,10 +82,13 @@
 <?php
 if (isset($_POST['acc'])) {
 	if (isset($_POST['check'])) {
-		$ket = "Surat sedang diperiksa oleh sekertaris";
 		foreach ($_POST['check'] as $value) {
+			$ket = "Surat sedang diperiksa oleh sekertaris";
+			$tgl = date('Y-m-d');
+
 			// echo $value;
-			$ubah = "UPDATE t_skdu set  status =1, keterangan='$ket' where id_skdu = $value";
+			// $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+			$ubah = "UPDATE t_skdu SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_skdu=" . $value;
 
 			$query = mysqli_query($konek, $ubah);
 

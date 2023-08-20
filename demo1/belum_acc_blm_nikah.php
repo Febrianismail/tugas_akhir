@@ -45,7 +45,7 @@
                                         $nik = $data['nik'];
                                         $nama = $data['nama'];
                                         $status = $data['status'];
-                                        $id = $data['id_blm'];
+                                        $id = $data['id_blm_nikah'];
                                         $nomorkk = $data['nomorkk'];
                                         $alamat = $data['alamat'];
                                         $jk = $data['jk'];
@@ -53,9 +53,9 @@
                                         $pekerjaan = $data['pekerjaan'];
                                         $keperluan = $data['keperluan'];
                                         $keterangan = $data['tujuan'];
-                                        $tempat = $data['tempat'];
+                                        $tempat = $data['tempat_lahir'];
                                         $tgl = $data['tgl_lahir'];
-                                        $id_blm = $data['id_blm'];
+                                        $id_blm = $data['id_blm_nikah'];
 
                                         if ($status == "1") {
                                             $status = "Sudah ACC Staf";
@@ -79,9 +79,9 @@
 
                                             <td>
                                                 <div class="form-button-action">
-                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=view_blm_nikah&id_blm=<?= $id_blm; ?>">
+                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=view_blm_nikah&id_blm_nikah=<?= $id_blm; ?>">
                                                         <i class="fa fa-edit"></i></a>
-                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_blm_nikah_seket&id_blm=<?= $id_blm; ?>">
+                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_blm_nikah_seket&id_blm_nikah=<?= $id_blm; ?>">
                                                         <i class="fa fa-edit"></i></a>
                                                 </div>
 
@@ -106,7 +106,7 @@ if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
             // echo $value;
-            $ubah = "UPDATE id_blm set status =2 where id_blm = $value";
+            $ubah = "UPDATE t_blm_nikah set status =2 where id_blm_nikah = $value";
 
             $query = mysqli_query($konek, $ubah);
 

@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="container-fluid">
+	<div class="container-fluid ">
 		<div class="copyright ml-auto">
 			<?php echo date('Y'); ?>, Credit fbrian </i>
 		</div>
@@ -36,7 +36,7 @@
 			initComplete: function() {
 				this.api().columns().every(function() {
 					var column = this;
-					var select = $('<select class="form-control"><option value=""></option></select>')
+					var select = $('<select class="form-control"><option value="2"></option></select>')
 						.appendTo($(column.footer()).empty())
 						.on('change', function() {
 							var val = $.fn.dataTable.util.escapeRegex(

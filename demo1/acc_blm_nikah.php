@@ -42,7 +42,7 @@
 
 
 
-                                        $id_blm = $data['id_blm'];
+                                        $id_blm = $data['id_blm_nikah'];
 
                                         if ($status == "1") {
                                             $status = "<b style='color:blue'>ACC</b>";
@@ -60,7 +60,7 @@
                                                 <input type="checkbox" name="check[$i]" value="<?php echo $id_blm; ?>">
                                                 <input type="submit" name="acc" class="btn btn-primary btn-sm" value="ACC">
                                                 <div class="form-button-action">
-                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_blm_nikah&id_blm=<?= $id_blm; ?>">
+                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_blm_nikah&id_blm_nikah=<?= $id_blm; ?>">
                                                         <i class="fa fa-edit"></i></a>
                                                 </div>
                                             </td>
@@ -84,8 +84,11 @@ if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
             $ket = "Surat sedang diperiksa oleh sekertaris";
+            $tgl = date('Y-m-d');
+
             // echo $value;
-            $ubah = "UPDATE t_blm_nikah set status =1 ,keterangan='$ket' where id_blm = $value";
+            // $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+            $ubah = "UPDATE t_blm_nikah SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_blm_nikah=" . $value;
 
             $query = mysqli_query($konek, $ubah);
 

@@ -9,7 +9,7 @@
             <form method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">DETAIL EDIT REQUEST SURAT KETERANGAN TIDAK MAMPU</div>
+                        <div class="card-title">DETAIL EDIT REQUEST SURAT USAHA</div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -47,6 +47,7 @@
                                 <li class="list-group-item">Scan KTP</li>
                                 <li class="list-group-item">Scan surat pernyatan rt/rw</li>
                                 <li class="list-group-item">Foto Tempat Usaha</li>
+                                <li class="list-group-item">Surat Pernyataan (TTD Di atas materai 10000) </li>
                             </ul>
                         </div>
 

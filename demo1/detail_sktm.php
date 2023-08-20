@@ -20,18 +20,20 @@ if (isset($_GET['id_sktm'])) {
 	$id = $data['id_sktm'];
 	$nik = $data['nik'];
 	$nama = $data['nama'];
-	$jk = $data['jk'];
+	$nomorkk = $data['nomorkk'];
 	$tempat = $data['tempat'];
-	$tgl_lahir = $data['tgl_lahir'];
+	$tgl = $data['tgl_lahir'];
 	$agama = $data['agama'];
-	$status_perkawinan = $data['status_perkawinan'];
-	$pendidikan = $data['pendidikan'];
-	$pekerjaan = $data['pekerjaan'];
+	$jekel = $data['jk'];
 	$alamat = $data['alamat'];
+	$surat_perkawinan = $data['status_perkawinan'];
+	$pekerjaan = $data['pekerjaan'];
 	$keperluan = $data['keperluan'];
+	$pendidikan = $data['pendidikan'];
 	$tujuan = $data['tujuan'];
-	$berlaku_tgl = $data['berlaku_tgl'];
 	$berdasarkan_keterangan = $data['berdasarkan_keterangan'];
+
+	$berlaku_tgl = $data['berlaku_tgl'];
 	$keterangan = $data['keterangan'];
 }
 ?>
@@ -78,11 +80,11 @@ if (isset($_GET['id_sktm'])) {
 								</div>
 								<div class="form-group">
 									<label>Tanggal Lahir</label>
-									<input type="date" name="tgl" value="<?php echo $tgl_lahir; ?>" class="form-control" readonly>
+									<input type="date" name="tgl" value="<?php echo $tgl; ?>" class="form-control" readonly>
 								</div>
 								<div class="form-group">
 									<label>Jenis Kelamin</label>
-									<input type="text" name="jekel" value="<?php echo $jk; ?>" class="form-control" readonly>
+									<input type="text" name="jekel" value="<?php echo $jekel; ?>" class="form-control" readonly>
 								</div>
 								<div class="form-group">
 									<label>Agama</label>
@@ -90,7 +92,7 @@ if (isset($_GET['id_sktm'])) {
 								</div>
 								<div class="form-group">
 									<label>Status Perkawinan</label>
-									<input type="text" name="statusperkawinan" value="<?php echo $status_perkawinan; ?>" class="form-control" readonly>
+									<input type="text" name="statusperkawinan" value="<?php echo $surat_perkawinan; ?>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
@@ -117,7 +119,7 @@ if (isset($_GET['id_sktm'])) {
 
 								<div class="form-group">
 									<label>Tujuan</label>
-									<input type="text" name="Tujuan" class="form-control" value="<?= $tujuan; ?>" readonly>
+									<input type="text" name="tujuan" class="form-control" value="<?= $tujuan; ?>" readonly>
 								</div>
 								<div class="form-group">
 									<label>Berlaku Tgl</label>
@@ -150,6 +152,7 @@ if (isset($_GET['id_sktm'])) {
 
 				</div>
 	</form>
+
 </div>
 <script>
 	$(function() {
@@ -185,9 +188,12 @@ if (isset($_POST['ubah'])) {
 		tempat='$tempat',
 		jk='$kelamin',
 		agama='$agama',
-		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan',berlaku_tgl='$berlaku_tgl',keterangan='$keterangan'
-        ,berdasarkan_keterangan='$rt'
-		status_warga='$status_warga' WHERE nik='$nik'";
+		alamat='$alamat',
+		status_perkawinan='$status_perkawinan',
+		pekerjaan='$pekerjaan',
+		berlaku_tgl='$berlaku_tgl',
+		keterangan='$keterangan',
+		berdasarkan_keterangan='$rt' WHERE id_sktm=" . $paramValuesId['id_sktm'];
 	$query = mysqli_query($konek, $ubah);
 
 	if ($query == 1) {

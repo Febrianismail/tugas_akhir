@@ -143,9 +143,10 @@ if (isset($_GET['id_sktm'])) {
                         <?php endforeach; ?>
                         </div>
 
+
                 </div>
             </div>
-
+        </div>
     </form>
 
 </div>

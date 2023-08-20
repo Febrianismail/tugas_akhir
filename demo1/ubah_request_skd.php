@@ -38,7 +38,7 @@ if (isset($_GET['id_skdu'])) {
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
-									<input type="text" class="form-control" value="<?= $nik; ?>">
+									<input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama</label>
@@ -46,21 +46,22 @@ if (isset($_GET['id_skdu'])) {
 								</div>
 								<div class="form-group">
 									<label>Tempat Lahir</label>
-									<input type="text" name="tempatlahir" class="form-control" value="<?= $tempat; ?> ">
+									<input type="text" name="tempatlahir" class="form-control" value="<?= $tempat; ?>">
 								</div>
 								<div class="form-group">
 									<label>Tanggal Lahir</label>
 									<input type="date" name="tanggallahir" class="form-control" value="<?= $tanggal; ?>">
 								</div>
-								<div class="form-check">
-									<label>Jenis Kelamin</label><br />
+								<div class="form-group">
+									<label class="mb-2">Jenis Kelamin</label>
+									<br />
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $kelamin; ?>" checked="">
+										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($kelamin == 'Laki-Laki') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Laki-Laki</span>
 									</label>
 									<label class="form-radio-label ml-3">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $kelamin; ?>">
-										<span class=" form-radio-sign">Perempuan</span>
+										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($kelamin == 'Perempuan') ? 'checked' : '' ?>>
+										<span class="form-radio-sign">Perempuan</span>
 									</label>
 								</div>
 								<div class="form-group">
@@ -120,12 +121,12 @@ if (isset($_GET['id_skdu'])) {
 
 <?php
 if (isset($_POST['ubah'])) {
-	$nik = $_POST['nik'];
+	$nik1 = $_POST['nik'];
 	$nama = $_POST['nama'];
 	$tempatlahir = $_POST['tempatlahir'];
 	$tgl = $_POST['tanggallahir'];
 	$jeniskelamin = $_POST['jk'];
-	$agama = $_POST['agama'];
+	$agamainput = $_POST['agama'];
 	$pekerjaan = $_POST['pekerjaan'];
 	$alamat_usaha = $_POST['alamat'];
 	$kelurahan = $_POST['kelurahan'];
@@ -135,7 +136,22 @@ if (isset($_POST['ubah'])) {
 	$bidangusaha = $_POST['bidangusaha'];
 	$keterangan = $_POST['keterangan'];
 
-	$sql = "UPDATE t_skdu SET ";
+	$sql = "UPDATE t_skdu SET
+    nama='$nama',
+    jk='$jeniskelamin',
+    tempat='$tempatlahir',
+    tgl_lahir='$tgl',
+    agama='$agamainput',
+    kelurahan='$kelurahan',
+    kecamatan='$kecamatan',
+    kota='$kota',
+    pekerjaan='$pekerjaan',
+    alamat='$alamat_usaha',
+    nama_usaha='$namausaha',
+    bidang_surat='$bidangusaha',
+    surat_keterangan='$keterangan',
+    nik='$nik1' 
+	WHERE id_skdu=$id";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {

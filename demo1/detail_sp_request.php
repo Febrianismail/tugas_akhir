@@ -40,12 +40,34 @@
 
                         ?>
                         <div class="container mt-5">
-                            <h1 class="mb-4">Persyaratan</h1>
+                            <h1 class="mb-4">Persyaratan Ahli Waris</h1>
                             <ul class="list-group">
                                 <li class="list-group-item">Scan KK</li>
                                 <li class="list-group-item">Scan KTP</li>
-                                <li class="list-group-item">Scan surat pernyatan rt/rw</li>
-                                <li class="list-group-item">Foto Tempat Usaha</li>
+                                <li class="list-group-item">Scan surat pengantar rt/rw</li>
+                                <li class="list-group-item">Akte Kematian Ortu</li>
+                                <li class="list-group-item">Surat Nikah Ortu</li>
+                                <li class="list-group-item">materai 1000</li>
+                            </ul>
+                        </div>
+                        <div class="container mt-5">
+                            <h1 class="mb-4">Persyaratan Keterangan Penghasilan</h1>
+                            <ul class="list-group">
+                                <li class="list-group-item">Scan KK</li>
+                                <li class="list-group-item">Scan KTP</li>
+                                <li class="list-group-item">Scan surat pengantar rt/rw</li>
+                                <li class="list-group-item">Surat Pernyataan penghasilan</li>
+
+                            </ul>
+                        </div>
+                        <div class="container mt-5">
+                            <h1 class="mb-4">Persyaratan Keterangan KTP/KK Dalam proses</h1>
+                            <ul class="list-group">
+                                <li class="list-group-item">Scan KK</li>
+                                <li class="list-group-item">Scan KTP</li>
+                                <li class="list-group-item">Scan tanda trima dari mas rio</li>
+
+
                             </ul>
                         </div>
 

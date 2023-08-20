@@ -29,7 +29,7 @@ $alamat1 = $data['alamat'];
 								<div class="form-group">
 									<label>NIK</label>
 									<input type="hidden" class="form-control" value="<?= $nik; ?>">
-									<input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+									<input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama</label>
@@ -38,7 +38,7 @@ $alamat1 = $data['alamat'];
 								</div>
 								<div class="form-group">
 									<label>Nomor KK</label>
-									<input type="text" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
+									<input type="number" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
 								</div>
 
 								<div class="form-group">
@@ -51,14 +51,16 @@ $alamat1 = $data['alamat'];
 									<input type="hidden" class="form-control" value="<?= $tgl; ?>">
 									<input type="date" name="tanggallahir" class="form-control" value="<?= $tgl; ?>">
 								</div>
-								<div class=" form-check">
-									<label>Jenis Kelamin</label><br />
+
+								<div class="form-group">
+									<label class="mb-2">Jenis Kelamin</label>
+									<br>
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $jk; ?>" checked="">
+										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Laki-Laki</span>
 									</label>
 									<label class="form-radio-label ml-3">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $jk; ?>">
+										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Perempuan</span>
 									</label>
 								</div>

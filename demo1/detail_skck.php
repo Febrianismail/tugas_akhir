@@ -82,31 +82,31 @@ if (isset($_GET['id_skck'])) {
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <input type="text" name="jekel" value="<?php echo $jekel; ?>" class="form-control">
+                                    <input type="text" name="jekel" value="<?php echo $jekel; ?>" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <input type="text" name="agama" value="<?php echo $agama; ?>" class="form-control">
+                                    <input type="text" name="agama" value="<?php echo $agama; ?>" class="form-control" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Status Perkawinan</label>
-                                    <input type="text" name="statusperkawinan" value="<?php echo $status_perkawinan; ?>" class="form-control">
+                                    <input type="text" name="statusperkawinan" value="<?php echo $status_perkawinan; ?>" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label>Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" value="<?php echo $pekerjaan; ?>" class="form-control">
+                                    <input type="text" name="pekerjaan" value="<?php echo $pekerjaan; ?>" class="form-control" readonly>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="comment">Alamat</label>
-                                    <textarea class="form-control" name="alamat" rows="5"> <?php echo $alamat; ?></textarea>
+                                    <textarea class="form-control" name="alamat" rows="5" readonly> <?php echo $alamat; ?></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Pendidikan</label>
-                                    <input type="text" name="pendidikan" value="<?php echo $pendidikan; ?>" class="form-control">
+                                    <input type="text" name="pendidikan" value="<?php echo $pendidikan; ?>" class="form-control" readonly>
 
                                 </div>
 
@@ -125,7 +125,7 @@ if (isset($_GET['id_skck'])) {
                                 </div>
                                 <div class="form-group">
                                     <label>Berdasarkan Keterangan RT/RW</label>
-                                    <input type="text" name="berdasarkan" class="form-control" value="<?= $rt; ?>">
+                                    <input type="text" name="berdasarkan" class="form-control" value="<?= $rt; ?>" readonly>
                                 </div>
 
                             </div>
@@ -174,7 +174,7 @@ if (isset($_POST['ubah'])) {
     $alamat = $_POST['alamat'];
     $pendidikan = $_POST['pendidikan'];
     $keperluan = $_POST['keperluan'];
-    $tujuan = $_POST['tujuan'];
+
     $berlaku_tgl = $_POST['berlakutgl'];
     $rt = $_POST['berdasarkan'];
     $keterangan = $_POST['keterangan'];
@@ -185,9 +185,9 @@ if (isset($_POST['ubah'])) {
 		tempat='$tempat',
 		jk='$kelamin',
 		agama='$agama',
-		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan'
+		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan',
         
-		status_warga='$status_warga' WHERE nik='$nik'";
+		berlaku_tgl='$berlaku_tgl' WHERE id_skck=" . $paramValuesId['id_skck'];
     $query = mysqli_query($konek, $ubah);
 
     if ($query == 1) {

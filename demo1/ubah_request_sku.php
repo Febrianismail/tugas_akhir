@@ -31,7 +31,7 @@ if (isset($_GET['id_sku'])) {
 			<form method="POST" enctype="multipart/form-data">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM TAMBAH REQUEST SURAT KETERANGAN USAHA</div>
+						<div class="card-title">UBAH FORM REQUEST USAHA</div>
 					</div>
 					<div class="card-body">
 						<div class="row">

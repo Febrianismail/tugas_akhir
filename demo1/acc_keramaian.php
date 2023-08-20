@@ -84,10 +84,13 @@ if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
             $ket = "Surat sedang diperiksa oleh sekertaris";
-            // echo $value;
-            $ubah = "UPDATE t_keramaian set status =1 ,keterangan='$ket' where id_keramaian = $value";
+            $tgl = date('Y-m-d');
 
-            $query = mysqli_query($konek, $ubah);
+            // echo $value;
+            // $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+            $ubah = "UPDATE t_keramaian SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_keramaian=" . $value;
+
+            $query = mysqli_query($konek, $ubah);;
 
             if ($query) {
                 echo "<script language='javascript'>swal('Selamat...', 'ACC Staf Berhasil!', 'success');</script>";

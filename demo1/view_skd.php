@@ -236,7 +236,7 @@ if (isset($_GET['id_skdu'])) {
                             <tr>
                                 <th></th>
                                 <th width="100px"></th>
-                                <th>Malang, <?php echo $acc; ?></th>
+                                <th>Malang, </th>
                             </tr>
                             <tr>
 

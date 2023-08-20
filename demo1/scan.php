@@ -45,6 +45,7 @@
                                     <li class="list-group-item">Scan KTP</li>
                                     <li class="list-group-item">Scan surat pernyatan rt/rw</li>
                                     <li class="list-group-item">Foto Tempat Usaha</li>
+                                    <li class="list-group-item">Surat Pernyataan (TTD Di atas materai 10000) </li>
                                 </ul>
                             </div>
 

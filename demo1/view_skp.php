@@ -225,7 +225,7 @@ if (isset($_GET['id_request_skp'])) {
                             <tr>
                                 <th></th>
                                 <th width="100px"></th>
-                                <th>Kudus, <?php echo $acc; ?></th>
+                                <th>Kudus, </th>
                             </tr>
                             <tr>
                                 <td>Tanda tangan <br> Yang bersangkutan </td>

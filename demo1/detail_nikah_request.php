@@ -43,10 +43,18 @@
                         <div class="container mt-5">
                             <h1 class="mb-4">Persyaratan</h1>
                             <ul class="list-group">
-                                <li class="list-group-item">Scan KK</li>
-                                <li class="list-group-item">Scan KTP</li>
-                                <li class="list-group-item">Scan surat pernyatan rt/rw</li>
-                                <li class="list-group-item">Foto Tempat Usaha</li>
+                                <li class="list-group-item">Scan KK (putra & Putri)</li>
+                                <li class="list-group-item">Scan KTP (putra & Putri)</li>
+                                <li class="list-group-item">Scan akte lahir (putra & Putri)</li>
+                                <li class="list-group-item">Scan ijasah (putra & Putri)</li>
+                                <li class="list-group-item">Scan identitas kerja jika jenis pekerjaan tidak sesuai KK (putra & Putri)</li>
+                                <li class="list-group-item">Scan hasil pemeriksaan kesehatan catim (mempelai berdua)</li>
+                                <li class="list-group-item">Scan KTP ortu (ayah&ibu)</li>
+                                <li class="list-group-item">bila sudah almarhum,scan akte kematian (ayah/ibu)</li>
+                                <li class="list-group-item">Bila ortu sudah pisah,ditambah Scan kk masing masing ortu</li>
+                                <li class="list-group-item">Scan surat pengantar rt/rw</li>
+                                <li class="list-group-item">pas foto </li>
+
                             </ul>
                         </div>
 

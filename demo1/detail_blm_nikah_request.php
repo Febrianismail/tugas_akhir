@@ -23,15 +23,15 @@
                         $paramValuesId = array_map(function ($value) {
                             return $value;
                         }, $_GET);
-                        $idParamsUrl = $paramValuesId['id_blm'];
+                        $idParamsUrl = $paramValuesId['id_blm_nikah'];
 
                         $tampilJenisPersyaratan = "SELECT * FROM `data_jenis_persyaratan` ";
                         $queryJP = mysqli_query($konek, $tampilJenisPersyaratan);
                         $datajp = mysqli_fetch_all($queryJP, MYSQLI_BOTH);
 
                         $idNikah = '';
-                        if (isset($paramValuesId['id_blm'])) {
-                            $idNikah = $paramValuesId['id_blm'];
+                        if (isset($paramValuesId['id_blm_nikah'])) {
+                            $idNikah = $paramValuesId['id_blm_nikah'];
                         }
 
                         $tampilScan = "SELECT *, data_jenis_persyaratan.id as idPersyaratan, data_image.id as idImage FROM `data_image` JOIN data_jenis_persyaratan ON data_image.jenis_surat_id = data_jenis_persyaratan.id WHERE `blm_nikah_id`=" . $idNikah;
@@ -46,7 +46,7 @@
                                 <li class="list-group-item">Scan KK</li>
                                 <li class="list-group-item">Scan KTP</li>
                                 <li class="list-group-item">Scan surat pernyatan rt/rw</li>
-                                <li class="list-group-item">Foto Tempat Usaha</li>
+                                <li class="list-group-item">Surat Pernyataan belum nikah (TTD Di atas materai 10000) </li>
                             </ul>
                         </div>
 
@@ -95,7 +95,7 @@
                                                 <img src="../dataFoto/<?= $vScans['path_image'] ?>" alt="" class="img-thumbnail" style="height: 100px;">
                                             </td>
                                             <td>
-                                                <a href="?halaman=detail_blm_nikah_request&delete=<?= $vScans['idImage'] ?>&id_blm=<?= $idNikah ?>" class="btn btn-danger">Hapus</a>
+                                                <a href="?halaman=detail_blm_nikah_request&delete=<?= $vScans['idImage'] ?>&id_blm_nikah=<?= $idNikah ?>" class="btn btn-danger">Hapus</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -137,7 +137,7 @@
                                 if (!$resultBerkas) {
                                     echo "Erro : " . mysqli_error($konek);
                                 }
-                                echo '<meta http-equiv="refresh" content="0; url=?halaman=detail_blm_nikah_request&id_blm=' . $idParamsUrl . '">';
+                                echo '<meta http-equiv="refresh" content="0; url=?halaman=detail_blm_nikah_request&id_blm_nikah=' . $idParamsUrl . '">';
                             } else {
                                 echo 'belum memilih jenis persyaratan';
                             }
@@ -168,7 +168,7 @@
                             if (!$result) {
                                 echo "Error: " . mysqli_error($konek);
                             }
-                            echo '<meta http-equiv="refresh" content="0; url=?halaman=detail_blm_nikah_request&id_blm=' . $idParamsUrl . '">';
+                            echo '<meta http-equiv="refresh" content="0; url=?halaman=detail_blm_nikah_request&id_blm_nikah=' . $idParamsUrl . '">';
                         }
 
                         ?>

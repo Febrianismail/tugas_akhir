@@ -8,7 +8,7 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="d-flex align-items-center">
-						<h4 class="fw-bold text-uppercase">TAMPIL ACC REQUEST SKTM</h4>
+						<h4 class="fw-bold text-uppercase">TAMPIL ACC REQUEST SKU</h4>
 					</div>
 				</div>
 				<div class="card-body">
@@ -28,7 +28,7 @@
 								<tbody>
 									<?php
 									$i = 1;
-									$sql = "SELECT * FROM t_sku  WHERE status=0";
+									$sql = "SELECT * FROM t_sku WHERE status =0";
 									$query = mysqli_query($konek, $sql);
 									while ($data = mysqli_fetch_array($query, MYSQLI_BOTH)) {
 										$tgl = $data['tanggal_request'];
@@ -84,8 +84,11 @@ if (isset($_POST['acc'])) {
 	if (isset($_POST['check'])) {
 		foreach ($_POST['check'] as $value) {
 			$ket = "Surat sedang diperiksa oleh sekertaris";
+			$tgl = date('Y-m-d');
+
 			// echo $value;
-			$ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+			// $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+			$ubah = "UPDATE t_sku SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_sku=" . $value;
 
 			$query = mysqli_query($konek, $ubah);
 

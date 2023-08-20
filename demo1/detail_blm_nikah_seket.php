@@ -7,22 +7,22 @@ $paramValuesId = array_map(function ($value) {
     return $value;
 }, $_GET);
 
-$qDetailImg = "SELECT *, data_jenis_persyaratan.id as idPersyaratan, data_image.id as idImage, data_jenis_persyaratan.nama_persyaratan FROM `data_image` JOIN data_jenis_persyaratan ON data_image.jenis_surat_id = data_jenis_persyaratan.id WHERE `blm_nikah_id`=" . $paramValuesId['id_blm'];
+$qDetailImg = "SELECT *, data_jenis_persyaratan.id as idPersyaratan, data_image.id as idImage, data_jenis_persyaratan.nama_persyaratan FROM `data_image` JOIN data_jenis_persyaratan ON data_image.jenis_surat_id = data_jenis_persyaratan.id WHERE `blm_nikah_id`=" . $paramValuesId['id_blm_nikah'];
 $queryImage = mysqli_query($konek, $qDetailImg);
 $dataImg = mysqli_fetch_all($queryImage, MYSQLI_BOTH);
 
 
-if (isset($_GET['id_blm'])) {
-    $id = $_GET['id_blm'];
-    $tampil_nik = "SELECT * FROM t_blm_nikah WHERE id_blm=$id";
+if (isset($_GET['id_blm_nikah'])) {
+    $id = $_GET['id_blm_nikah'];
+    $tampil_nik = "SELECT * FROM t_blm_nikah WHERE id_blm_nikah=$id";
     $query = mysqli_query($konek, $tampil_nik);
     $data = mysqli_fetch_array($query, MYSQLI_BOTH);
-    $id = $data['id_blm'];
+    $id = $data['id_blm_nikah'];
     $nik = $data['nik'];
     $nama = $data['nama'];
     $nomorkk = $data['nomorkk'];
     $jk = $data['jk'];
-    $tempat = $data['tempat'];
+    $tempat = $data['tempat_lahir'];
     $tgl_lahir = $data['tgl_lahir'];
     $agama = $data['agama'];
     $status_perkawinan = $data['status_perkawinan'];
@@ -43,14 +43,7 @@ if (isset($_GET['id_blm'])) {
                 <div class="card">
                     <div class="card-header">
                         <div class="form-group">
-                            <label>Keterangan</label>
-                            <input type="text" name="keterangan" class="form-control" autofocus><br>
-                            <button type="submit" name="ubah" class="btn btn-info btn-border btn-round btn-sm">
-                                <span class="btn-label">
-                                    <i class="fas fa-edit"></i>
-                                </span>
-                                Ubah
-                            </button>
+
                             <a href="?halaman=sudah_acc_blm_nikah" class="btn btn-info btn-border btn-round btn-sm">
                                 Batal
                             </a>
@@ -113,7 +106,7 @@ if (isset($_GET['id_blm'])) {
 
                                 <div class="form-group">
                                     <label>Keperluan</label>
-                                    <input type="text" name="keperluan" readonly="" class="form-control" value="<?= $keperluan; ?>" readonly>
+                                    <input type="text" name="keperluan" readonly="" class="form-control" value="<?= $keperluan; ?>">
                                 </div>
 
 
@@ -193,8 +186,8 @@ if (isset($_POST['ubah'])) {
 
     if ($query == 1) {
         $keterangan = $_POST['keterangan'];
-        $ubah = "UPDATE t_blm SET
-		keterangan='$keterangan' WHERE id_blm=" . $paramValuesId['id_blm'];
+        $ubah = "UPDATE t_blm_nikah SET
+		keterangan='$keterangan' WHERE id_blm_nikah=" . $paramValuesId['id_blm_nikah'];
         $quey = mysqli_query($konek, $ubah);
         if ($quey == 1) {
             echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";

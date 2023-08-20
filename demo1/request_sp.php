@@ -28,7 +28,7 @@ $alamat1 = $data['alamat'];
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="hidden" class="form-control" value="<?= $nik; ?>">
-                                    <input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+                                    <input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
@@ -37,7 +37,7 @@ $alamat1 = $data['alamat'];
                                 </div>
                                 <div class="form-group">
                                     <label>Nomor KK</label>
-                                    <input type="text" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
+                                    <input type="number" name="nomorkk" class="form-control" placeholder="Masukan Nomor KK anda">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
@@ -46,6 +46,7 @@ $alamat1 = $data['alamat'];
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
+                                    <input type="hidden" class="form-control" value="<?= $tgl1; ?>">
                                     <input type="date" name="tanggallahir" class="form-control" value="<?= $tgl1; ?>">
                                 </div>
                                 <div class="form-check">

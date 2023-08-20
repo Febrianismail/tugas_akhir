@@ -21,18 +21,19 @@ if (isset($_GET['id_keramaian'])) {
     $nik = $data['nik'];
     $nama = $data['nama'];
     $nomorkk = $data['nomorkk'];
-    $jk = $data['jk'];
     $tempat = $data['tempat'];
     $tgl_lahir = $data['tgl_lahir'];
+    $jk = $data['jk'];
     $agama = $data['agama'];
     $status_perkawinan = $data['status_perkawinan'];
-    $pendidikan = $data['pendidikan'];
     $pekerjaan = $data['pekerjaan'];
     $alamat = $data['alamat'];
+    $pendidikan = $data['pendidikan'];
     $keperluan = $data['keperluan'];
+    $tujuan = $data['tujuan'];
+    $berlaku_tgl = $data['berlaku_tgl'];
     $acara = $data['padatgl'];
     $mengadakan = $data['acara'];
-    $berlaku_tgl = $data['berlaku_tgl'];
     $keterangan = $data['keterangan'];
 }
 ?>
@@ -57,7 +58,7 @@ if (isset($_GET['id_keramaian'])) {
                         </div>
                     </div>
                     <div class="container mt-5">
-                        <h1 class="mb-5">Formulir Data SKTM Pemohon</h1>
+                        <h1 class="mb-5">Formulir Data KERAMAIAN Pemohon</h1>
 
                         <div class="row">
                             <div class="col-md-6">
@@ -115,15 +116,17 @@ if (isset($_GET['id_keramaian'])) {
                                     <label>Keperluan</label>
                                     <input type="text" name="keperluan" readonly="" class="form-control" value="<?= $keperluan; ?>">
                                 </div>
-
-
+                                <div class="form-group">
+                                    <label>Keperluan</label>
+                                    <input type="text" name="tujuan" readonly="" class="form-control" value="<?= $tujuan; ?>">
+                                </div>
                                 <div class="form-group">
                                     <label>Berlaku Tgl</label>
                                     <input type="date" name="berlakutgl" class="form-control" value="<?= $berlaku_tgl; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Mengadakan Acara</label>
-                                    <input type="text" name="mengadakan" class="form-control" value="<?= $mengadakan; ?>">
+                                    <input type="text" name="mengadakan" class="form-control" value="<?= $mengadakan; ?>" readonly>
                                 </div>
 
                             </div>
@@ -163,9 +166,9 @@ if (isset($_POST['ubah'])) {
     $nik = $_POST['nik'];
     $nama = $_POST['nama'];
     $nomorkk = $_POST['nomorkk'];
-    $tempat = $_POST['tempat'];
+    $tempatlahir = $_POST['tempat'];
     $tgl = $_POST['tgl'];
-    $kelamin = $_POST['jekel'];
+    $jeniskelamin = $_POST['jekel'];
     $agama = $_POST['agama'];
     $status_perkawinan = $_POST['statusperkawinan'];
     $pekerjaan = $_POST['pekerjaan'];
@@ -173,19 +176,26 @@ if (isset($_POST['ubah'])) {
     $pendidikan = $_POST['pendidikan'];
     $keperluan = $_POST['keperluan'];
     $tujuan = $_POST['tujuan'];
-    $berlaku_tgl = $_POST['berlakutgl'];
-    $rt = $_POST['berdasarkan'];
-    $keterangan = $_POST['keterangan'];
+    $berlakutgl = $_POST['berlakutgl'];
+
 
     $ubah = "UPDATE t_keramaian SET
-		nama='$nama',
-		tgl_lahir='$tgl',
-		tempat='$tempat',
-		jk='$kelamin',
-		agama='$agama',
-		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan'
-        
-		status_warga='$status_warga' WHERE nik='$nik'";
+    nik='$nik',
+    nama='$nama',
+    nomorkk='$nomorkk',
+    tempat='$tempatlahir',
+    tgl_lahir='$tgl',
+    jk='$jeniskelamin',
+    agama='$agama',
+    status_perkawinan='$status_perkawinan',
+    pekerjaan='$pekerjaan',
+    alamat='$alamat',
+    pendidikan='$pendidikan',
+    keperluan='$keperluan',
+    tujuan='$tujuan',
+    berlaku_tgl='$berlakutgl'
+    
+	 WHERE nik='$nik'";
     $query = mysqli_query($konek, $ubah);
 
     if ($query == 1) {

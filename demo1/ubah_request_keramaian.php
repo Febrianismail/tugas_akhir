@@ -120,7 +120,7 @@ if (isset($_GET['id_keramaian'])) {
 						</div>
 					</div>
 					<div class=" card-action">
-						<input type="submit" name="ubah" class="btn btn-primary" value="Simpan">
+						<input type="submit" name="ubah" class="btn btn-primary" value="Ubah">
 						<!-- <button name="kirim" class="btn btn-success">Kirim</button> -->
 						<a href="?halaman=tampil_status" class="btn btn-default">Batal</a>
 					</div>
@@ -147,8 +147,8 @@ if (isset($_POST['ubah'])) {
 	$keperluan = $_POST['keperluan'];
 	$tujuan = $_POST['tujuan'];
 	$berlakutgl = $_POST['berlakutanggal'];
-	$keterangan = $_POST['keteranganrt_rw'];
-
+	$acara = $_POST['acara'];
+	$mengadakan = $_POST['mengadakan'];
 	$sql = "UPDATE t_keramaian SET
     nik='$nik',
     nama='$nama',
@@ -157,14 +157,15 @@ if (isset($_POST['ubah'])) {
     tgl_lahir='$tgl',
     jk='$jeniskelamin',
     agama='$agama',
-    status_perkawinan='$status_perkawiana',
+    status_perkawinan='$status_perkawinan',
     pekerjaan='$pekerjaan',
     alamat='$alamat',
     pendidikan='$pendidikan',
     keperluan='$keperluan',
     tujuan='$tujuan',
     berlaku_tgl='$berlakutgl',
-    keterangan='$keterangan'
+    padatgl='$acara',
+	acara='$mengadakan' 
 	WHERE id_keramaian=$id";
 	$query = mysqli_query($konek, $sql);
 

@@ -78,7 +78,7 @@ if (isset($_GET['id_pernyataan'])) {
                                 </div>
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <input type="text" name="jekel" value="<?php echo $jekel; ?>" class="form-control">
+                                    <input type="text" name="jekel" value="<?php echo $jekel; ?>" class="form-control" readonly>
                                 </div>
 
 
@@ -86,12 +86,12 @@ if (isset($_GET['id_pernyataan'])) {
                             <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label>Pekerjaan</label>
-                                    <input type="text" name="pekerjaan" value="<?php echo $pekerjaan; ?>" class="form-control">
+                                    <input type="text" name="pekerjaan" value="<?php echo $pekerjaan; ?>" class="form-control" readonly>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="comment">Alamat</label>
-                                    <textarea class="form-control" name="alamat" rows="5"> <?php echo $alamat; ?></textarea>
+                                    <textarea class="form-control" name="alamat" rows="5" readonly><?php echo $alamat; ?></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -105,7 +105,7 @@ if (isset($_GET['id_pernyataan'])) {
                                 </div>
                                 <div class="form-group">
                                     <label>surat Pernyataan Ini Untuk</label>
-                                    <input type="text" name="berdasarkan" class="form-control" value="<?= $tujuan; ?>">
+                                    <input type="text" name="berdasarkan" class="form-control" value="<?= $tujuan; ?> " readonly>
                                 </div>
 
                             </div>
@@ -118,17 +118,18 @@ if (isset($_GET['id_pernyataan'])) {
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"><?= $vImg['nama_persyaratan'] ?></h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content-md-center">
-                                    <img src="../dataFoto/<?= $vImg['path_image'] ?>" width="350" height="250" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
 
-            </div>
+                                <a href=" ../dataFoto/<?= $vImg['path_image'] ?>" class="pop">
+                                    <img src="../dataFoto/<?= $vImg['path_image'] ?>" width="350" height="250" alt="">
+                                </a>
+                            </div>
+
+
+                        <?php endforeach; ?>
+                        </div>
+
+
+                </div>
     </form>
 </div>
 <script>
@@ -148,14 +149,14 @@ if (isset($_POST['ubah'])) {
     $tempat = $_POST['tempat'];
     $tgl = $_POST['tgl'];
     $kelamin = $_POST['jekel'];
-    $agama = $_POST['agama'];
-    $status_perkawinan = $_POST['statusperkawinan'];
+
+
     $pekerjaan = $_POST['pekerjaan'];
     $alamat = $_POST['alamat'];
-    $pendidikan = $_POST['pendidikan'];
+
     $keperluan = $_POST['keperluan'];
-    $tujuan = $_POST['tujuan'];
-    $berlaku_tgl = $_POST['berlakutgl'];
+
+
     $rt = $_POST['berdasarkan'];
     $keterangan = $_POST['keterangan'];
 
@@ -163,11 +164,10 @@ if (isset($_POST['ubah'])) {
 		nama='$nama',
 		tgl_lahir='$tgl',
 		tempat='$tempat',
-		jk='$kelamin',
-		agama='$agama',
-		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan'
+		jenis_kelamin='$kelamin',
+		alamat='$alamat',pekerjaan='$pekerjaan'
         
-		status_warga='$status_warga' WHERE nik='$nik'";
+		 WHERE nik='$nik'";
     $query = mysqli_query($konek, $ubah);
 
     if ($query == 1) {
@@ -177,7 +177,7 @@ if (isset($_POST['ubah'])) {
         $quey = mysqli_query($konek, $ubah);
         if ($quey == 1) {
             echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
-            echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sp">';
+            echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sp">';
         }
     } else {
         echo "<script language='javascript'>swal('Gagal...', 'Ubah Gagal', 'error');</script>";

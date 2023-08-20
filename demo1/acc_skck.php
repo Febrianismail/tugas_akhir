@@ -84,8 +84,11 @@ if (isset($_POST['acc'])) {
     if (isset($_POST['check'])) {
         foreach ($_POST['check'] as $value) {
             $ket = "Surat sedang diperiksa oleh sekertaris";
+            $tgl = date('Y-m-d');
+
             // echo $value;
-            $ubah = "UPDATE t_skck set status =1 ,keterangan='$ket' where id_skck = $value";
+            // $ubah = "UPDATE t_sku	 set status =1 ,keterangan='$ket'where id_sku = $value";
+            $ubah = "UPDATE t_skck SET `status`='1', `keterangan`='$ket', `acc`='$tgl' WHERE id_skck=" . $value;
 
             $query = mysqli_query($konek, $ubah);
 

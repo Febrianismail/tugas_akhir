@@ -25,6 +25,7 @@ if (isset($_GET['id_sku'])) {
 	$tgl_lahir = $data['tgl_lahir'];
 	$agama = $data['agama'];
 	$status_perkawinan = $data['status_perkawinan'];
+	$kewarganegaraan = $data['kewarganegaraan'];
 	$pendidikan = $data['pendidikan'];
 	$pekerjaan = $data['pekerjaan'];
 	$alamat = $data['alamat'];
@@ -49,13 +50,13 @@ if (isset($_GET['id_sku'])) {
 								</span>
 								Ubah
 							</button>
-							<a href="?halaman=acc_sku" class="btn btn-info btn-border btn-round btn-sm">
+							<a href="?halaman=sudah_acc_sku" class="btn btn-info btn-border btn-round btn-sm">
 								Batal
 							</a>
 						</div>
 					</div>
 					<div class="container mt-5">
-						<h1 class="mb-5">Formulir Data SKTM Pemohon</h1>
+						<h1 class="mb-5">Formulir Data SKU Pemohon</h1>
 
 						<div class="row">
 							<div class="col-md-6">
@@ -66,10 +67,6 @@ if (isset($_GET['id_sku'])) {
 								<div class="form-group">
 									<label>Nama Lengkap</label>
 									<input type="text" name="nama" value="<?php echo $nama; ?>" class="form-control" readonly>
-								</div>
-								<div class="form-group">
-									<label>Nomor KK</label>
-									<input type="text" name="nomorkk" value="<?php echo $nomorkk; ?>" class="form-control" readonly>
 								</div>
 								<div class="form-group">
 									<label>Tempat Lahir</label>
@@ -90,6 +87,10 @@ if (isset($_GET['id_sku'])) {
 								<div class="form-group">
 									<label>Status Perkawinan</label>
 									<input type="text" name="statusperkawinan" value="<?php echo $status_perkawinan; ?>" class="form-control" readonly>
+								</div>
+								<div class="form-group">
+									<label>Kewarganegaraan</label>
+									<input type="text" name="kewarganegaraan" value="<?php echo $kewarganegaraan; ?>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
@@ -159,31 +160,31 @@ if (isset($_GET['id_sku'])) {
 <?php
 if (isset($_POST['ubah'])) {
 	$nik = $_POST['nik'];
-	$nama = $_POST['nama'];
-	$nomorkk = $_POST['nomorkk'];
-	$tempat = $_POST['tempat'];
-	$tgl = $_POST['tgl'];
-	$kelamin = $_POST['jekel'];
-	$agama = $_POST['agama'];
-	$status_perkawinan = $_POST['statusperkawinan'];
+	$namalengkap = $_POST['nama'];
+	$jk = $_POST['jekel'];
+	$tempatlahir = $_POST['tempat'];
+	$tgllahir = $_POST['tgl'];
+	$agamainput = $_POST['agama'];
+	$statusKawin = $_POST['statusperkawinan'];
+	$kewarganegaraan = $_POST['kewarganegaraan'];
+	$pendidikan = $_POST['pendidikan'];
 	$pekerjaan = $_POST['pekerjaan'];
 	$alamat = $_POST['alamat'];
-	$pendidikan = $_POST['pendidikan'];
 	$keperluan = $_POST['keperluan'];
-	$tujuan = $_POST['tujuan'];
-	$berlaku_tgl = $_POST['berlakutgl'];
-	$rt = $_POST['berdasarkan'];
+	$berlaku_tanggal = $_POST['berlakutgl'];
+	$berdasarkan_keterangan = $_POST['berdasarkan'];
+
 	$keterangan = $_POST['keterangan'];
 
 	$ubah = "UPDATE t_sku SET
 		nama='$nama',
-		tgl_lahir='$tgl',
+		tgl_lahir='$tgllahir',
 		tempat='$tempat',
-		jk='$kelamin',
+		jk='$jk',
 		agama='$agama',
 		alamat='$alamat',status_perkawinan='$status_perkawinan',pekerjaan='$pekerjaan'
         
-		status_warga='$status_warga' WHERE nik='$nik'";
+		 WHERE nik='$nik'";
 	$query = mysqli_query($konek, $ubah);
 
 	if ($query == 1) {
@@ -193,7 +194,7 @@ if (isset($_POST['ubah'])) {
 		$quey = mysqli_query($konek, $ubah);
 		if ($quey == 1) {
 			echo "<script language='javascript'>swal('Selamat...', 'Ubah Berhasil', 'success');</script>";
-			echo '<meta http-equiv="refresh" content="3; url=?halaman=acc_sku">';
+			echo '<meta http-equiv="refresh" content="3; url=?halaman=sudah_acc_sku">';
 		}
 	} else {
 		echo "<script language='javascript'>swal('Gagal...', 'Ubah Gagal', 'error');</script>";

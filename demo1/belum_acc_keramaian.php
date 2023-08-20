@@ -81,7 +81,7 @@
                                                 <div class="form-button-action">
                                                     <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=view_keramaian&id_keramaian=<?= $id_keramaian; ?>">
                                                         <i class="fa fa-edit"></i></a>
-                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_keramaian&id_keramaian=<?= $id_keramaian; ?>">
+                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_keramaian_seket&id_keramaian=<?= $id_keramaian; ?>">
                                                         <i class="fa fa-edit"></i></a>
                                                 </div>
 

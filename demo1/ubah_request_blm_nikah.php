@@ -111,10 +111,7 @@ if (isset($_GET['id_blm_nikah'])) {
 									<label>Berdasarjan Keterangan </label>
 									<input type="text" name="berdasrkan_keterangan" class="form-control" placeholder="Berdasarjan Keterangan anda" value="<?= $berdasrkan_keterangan ?>">
 								</div>
-								<div class="form-group">
-									<label>Keterangan </label>
-									<input type="text" name="keterangan" class="form-control" placeholder="Keterangan anda" value="<?= $keterangan ?>">
-								</div>
+
 
 
 							</div>
@@ -122,7 +119,7 @@ if (isset($_GET['id_blm_nikah'])) {
 						</div>
 					</div>
 					<div class="card-action">
-						<input type="submit" name="ubah" class="btn btn-primary" value="Lanjut">
+						<input type="submit" name="ubah" class="btn btn-primary" value="Ubah">
 						<!-- <button name="kirim" class="btn btn-success">Kirim</button> -->
 						<a href="?halaman=beranda" class="btn btn-default">Batal</a>
 					</div>
@@ -149,7 +146,7 @@ if (isset($_POST['ubah'])) {
 	$tujuan = $_POST['tujuan'];
 	$berlaku_tgl = $_POST['berlaku_tgl'];
 	$berdasrkan_keterangan = $_POST['berdasrkan_keterangan'];
-	$keterangan = $_POST['keterangan'];
+
 
 	$sql = "UPDATE t_blm_nikah SET
     nama='$nama',
@@ -166,8 +163,7 @@ if (isset($_POST['ubah'])) {
     keperluan='$keperluan',
     tujuan='$tujuan',
     berlaku_tgl='$berlaku_tgl',
-    berdasrkan_keterangan='$berdasrkan_keterangan',
-    keterangan='$keterangan'
+    berdasrkan_keterangan='$berdasrkan_keterangan'
 	WHERE id_blm_nikah=$id";
 	$query = mysqli_query($konek, $sql);
 

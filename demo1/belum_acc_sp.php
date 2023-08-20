@@ -80,7 +80,7 @@
                                                 <div class="form-button-action">
                                                     <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=view_sp&id_pernyataan=<?= $id_pernyatan; ?>">
                                                         <i class="fa fa-edit"></i></a>
-                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sp&id_pernyataan=<?= $id_pernyatan; ?>">
+                                                    <a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sp_seket&id_pernyataan=<?= $id_pernyatan; ?>">
                                                         <i class="fa fa-edit"></i></a>
                                                 </div>
 

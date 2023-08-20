@@ -28,11 +28,13 @@
                                 $idnikah = $datasktm['id_nikah'];
                             }
 
+
                             $tampilJenisPersyaratan = "SELECT * FROM `data_jenis_persyaratan` ";
                             $queryJP = mysqli_query($konek, $tampilJenisPersyaratan);
                             $datajp = mysqli_fetch_all($queryJP, MYSQLI_BOTH);
 
                             $tampilScan = "SELECT *, data_jenis_persyaratan.id as idPersyaratan, data_image.id as idImage FROM `data_image` JOIN data_jenis_persyaratan ON data_image.jenis_surat_id = data_jenis_persyaratan.id WHERE `nikah_id`= $idnikah ";
+
                             $queryScan = mysqli_query($konek, $tampilScan);
                             $dataScans = mysqli_fetch_all($queryScan, MYSQLI_BOTH);
 
@@ -40,10 +42,18 @@
                             <div class="container mt-5">
                                 <h1 class="mb-4">Persyaratan</h1>
                                 <ul class="list-group">
-                                    <li class="list-group-item">Scan KK</li>
-                                    <li class="list-group-item">Scan KTP</li>
-                                    <li class="list-group-item">Scan surat pernyatan rt/rw</li>
-                                    <li class="list-group-item">Surat Pernyataan tidak mampu (TTD Di atas materai 10000) </li>
+                                    <li class="list-group-item">Scan KK (putra & Putri)</li>
+                                    <li class="list-group-item">Scan KTP (putra & Putri)</li>
+                                    <li class="list-group-item">Scan akte lahir (putra & Putri)</li>
+                                    <li class="list-group-item">Scan ijasah (putra & Putri)</li>
+                                    <li class="list-group-item">Scan identitas kerja jika jenis pekerjaan tidak sesuai KK (putra & Putri)</li>
+                                    <li class="list-group-item">Scan hasil pemeriksaan kesehatan catim (mempelai berdua)</li>
+                                    <li class="list-group-item">Scan KTP ortu (ayah&ibu)</li>
+                                    <li class="list-group-item">bila sudah almarhum,scan akte kematian (ayah/ibu)</li>
+                                    <li class="list-group-item">Bila ortu sudah pisah,ditambah Scan kk masing masing ortu</li>
+                                    <li class="list-group-item">Scan surat pengantar rt/rw</li>
+                                    <li class="list-group-item">pas foto </li>
+
                                 </ul>
                             </div>
 

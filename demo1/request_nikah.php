@@ -30,7 +30,7 @@ $nama = $data['nama'];
                                 <div class="form-group">
                                     <label>NIK</label>
                                     <input type="hidden" class="form-control" value="<?= $nik; ?>">
-                                    <input type="text" name="nik_nikah" class="form-control" value="<?= $nik; ?>">
+                                    <input type="number" name="nik_nikah" class="form-control" value="<?= $nik; ?>">
 
                                 </div>
                                 <div class="form-check">
@@ -90,7 +90,7 @@ $nama = $data['nama'];
                                 </div>
                                 <div class="form-group">
                                     <label>Nik</label>
-                                    <input type="text" name="nik_pria" class="form-control" placeholder="Nik">
+                                    <input type="number" name="nik_pria" class="form-control" placeholder="Nik">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
@@ -125,7 +125,7 @@ $nama = $data['nama'];
                                 </div>
                                 <div class="form-group">
                                     <label>Nik</label>
-                                    <input type="text" name="nik_wanita" class="form-control" placeholder="Nik">
+                                    <input type="number" name="nik_wanita" class="form-control" placeholder="Nik">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
@@ -201,15 +201,16 @@ if (isset($_POST['submit'])) {
     $agama_wanita = $_POST['agama_wanita'];
     $pekerjaan_wanita = $_POST['pekerjaan_wanita'];
     $alamat_wanita = $_POST['alamat_wanita'];
+    $tanggal_request = date('Y-m-d');
 
 
 
     $nikuser = $_SESSION['nik'];
-    $sql = "INSERT INTO t_nikah (nama, nik_nikah, tempat_lahir, tgl_lahir, kewarganegaraan, agama, pekerjaan, alamat, status_pernikahan_laki, status_pernikahan_perempuan, nama_istri_suami_terdahulu, tanggal_request, nik_user,nama_lengkap_pria,nik_pria,tempat_lahir_pria,tgl_lahir_pria,kewarganegaraan_pria,agama_pria,pekerjaan_pria,alamat_pria,nama_wanita,nik_wanita,tempat_wanita,tgl_lahir_wanita,kewarganegaraan_wanita,agama_wanita,pekerjaan_wanita,alamat_wanita,jenis_kelamin) VALUES ('$nama', '$nik_nikah','$tempatlahir','$tanggallahir','$kewarganegaraan','$agama', '$pekerjaan','$alamat','$status_pernikahan_laki','$status_pernikahan_perempuan','$nama_istri_suami_terdahulu','$nikuser', '$nama_lengkap_pria','$nik_pria','$tempat_lahir_pria','$tgl_lahir_pria','$kewarganegaraan_pria','$agama_pria', '$pekerjaan_pria', '$alamat_pria','$nama_wanita','$nik_wanita','$tempat_wanita','$tgl_lahir_wanita','$kewarganegaraan_wanita','$agama_wanita','$pekerjaan_wanita','$alamat_wanita', '$jk')";
+    $sql = "INSERT INTO t_nikah (nama, nik_nikah, tempat_lahir, tgl_lahir, kewarganegaraan, agama, pekerjaan, alamat, status_pernikahan_laki, status_pernikahan_perempuan, nama_istri_suami_terdahulu, tanggal_request, nik_user,nama_lengkap_pria,nik_pria,tempat_lahir_pria,tgl_lahir_pria,kewarganegaraan_pria,agama_pria,pekerjaan_pria,alamat_pria,nama_wanita,nik_wanita,tempat_wanita,tgl_lahir_wanita,kewarganegaraan_wanita,agama_wanita,pekerjaan_wanita,alamat_wanita,jenis_kelamin) VALUES ('$nama', '$nik_nikah','$tempatlahir','$tanggallahir','$kewarganegaraan','$agama', '$pekerjaan','$alamat','$status_pernikahan_laki','$status_pernikahan_perempuan','$nama_istri_suami_terdahulu','$tanggal_request','$nikuser', '$nama_lengkap_pria','$nik_pria','$tempat_lahir_pria','$tgl_lahir_pria','$kewarganegaraan_pria','$agama_pria', '$pekerjaan_pria', '$alamat_pria','$nama_wanita','$nik_wanita','$tempat_wanita','$tgl_lahir_wanita','$kewarganegaraan_wanita','$agama_wanita','$pekerjaan_wanita','$alamat_wanita', '$jk')";
 
 
     if ($konek->query($sql) === TRUE) {
-        $_SESSION['nik_nikah'] = $nik;
+        $_SESSION['nik_nikah'] = $nik_nikah;
         echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>";
         echo '<meta http-equiv="refresh" content="3; url=?halaman=scannikah">';
         exit;

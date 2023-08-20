@@ -25,7 +25,7 @@
                             $idblmnikah = '';
                             if (isset($datasktm)) {
                                 $nik = $datasktm['nik'];
-                                $idblmnikah = $datasktm['id_blm'];
+                                $idblmnikah = $datasktm['id_blm_nikah'];
                             }
 
                             $tampilJenisPersyaratan = "SELECT * FROM `data_jenis_persyaratan` ";

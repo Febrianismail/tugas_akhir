@@ -6,8 +6,12 @@
 $tampil_nik = "SELECT * FROM data_user WHERE nik=$_SESSION[nik]";
 $query = mysqli_query($konek, $tampil_nik);
 $data = mysqli_fetch_array($query, MYSQLI_BOTH);
-
+$nik = $data['nik'];
 $nama = $data['nama'];
+$tempat1 = $data['tempat_lahir'];
+$tgl1 = $data['tanggal_lahir'];
+$jk = $data['jekel'];
+$agama1 = $data['agama']
 ?>
 <div class="page-inner">
     <div class="row">
@@ -23,39 +27,45 @@ $nama = $data['nama'];
                             <div class="col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label>Nama</label>
+                                    <input type="hidden" class="form-control" value="<?= $nama; ?>">
                                     <input type="text" name="nama" class="form-control" value="<?= $nama; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>NIK</label>
-                                    <input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+                                    <input type="hidden" class="form-control" value="<?= $nik; ?>">
+                                    <input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>No. Kartu Keluarga</label>
-                                    <input type="text" name="nomorkk" class="form-control">
+                                    <input type="number" name="nomorkk" class="form-control" placeholder="nomor kk">
                                 </div>
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
-                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir Anda">
+                                    <input type="hidden" class="form-control" value="<?= $tempat1; ?>">
+                                    <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir Anda" value="<?= $tempat1; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
+                                    <input type="hidden" class="form-control" value="<?= $tgl1; ?>">
                                     <input type="date" name="tgl_lahir" class="form-control">
                                 </div>
-                                <div class="form-check">
-                                    <label>Jenis Kelamin</label><br />
+                                <div class="form-group">
+                                    <label class="mb-2">Jenis Kelamin</label>
+                                    <br>
                                     <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" checked="">
+                                        <input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
                                         <span class="form-radio-sign">Laki-Laki</span>
                                     </label>
                                     <label class="form-radio-label ml-3">
-                                        <input class="form-radio-input" type="radio" name="jk" value="Perempuan">
+                                        <input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
                                         <span class="form-radio-sign">Perempuan</span>
                                     </label>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <input type="text" name="agama" class="form-control" placeholder="Agama ">
+                                    <input type="hidden" class="form-control" value="<?= $agama1; ?>">
+                                    <input type="text" name="agama" class="form-control" placeholder="Agama " value="<?= $agama1; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Status Perkawinan</label>
@@ -130,9 +140,9 @@ if (isset($_POST['submit'])) {
 
 
     $nikuser = $_SESSION['nik'];
-    $sql = "INSERT INTO t_blm_nikah (nama, nik, nomorkk, tempat, tgl_lahir, jk, agama, status_perkawinan, pekerjaan, alamat, pendidikan, keperluan, tujuan, berlaku_tgl, berdasrkan_keterangan, nik_user) VALUES ('$nama', '$nik','$nomorkk','$tempat_lahir','$tgl_lahir','$jk', '$agama','$status_perkawinan','$pekerjaan','$alamat','$pendidikan', '$keperluan','$tujuan', '$berlaku_tgl','$berdasrkan_keterangan','$nikuser')";
+    $sql = "INSERT INTO t_blm_nikah (nama, nik, nomorkk, tempat_lahir, tgl_lahir, jk, agama, status_perkawinan, pekerjaan, alamat, pendidikan, keperluan, tujuan, berlaku_tgl, berdasrkan_keterangan, nik_user) VALUES ('$nama', '$nik','$nomorkk','$tempat_lahir','$tgl_lahir','$jk', '$agama','$status_perkawinan','$pekerjaan','$alamat','$pendidikan', '$keperluan','$tujuan', '$berlaku_tgl','$berdasrkan_keterangan','$nikuser')";
 
-
+    echo $sql;
     if ($konek->query($sql) === TRUE) {
         $_SESSION['nik_blm_nikah'] = $nik;
         echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>";

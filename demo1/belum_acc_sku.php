@@ -79,7 +79,7 @@
 												<div class="form-button-action">
 													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Lihat Surat" href="?halaman=view_sku&id_sku=<?= $id_sku; ?>">
 														<i class="fa fa-edit"></i></a>
-													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sku&id_sku=<?= $id_sku; ?>">
+													<a type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Cek Data" href="?halaman=detail_sku_seket&id_sku=<?= $id_sku; ?>">
 														<i class="fa fa-edit"></i></a>
 												</div>
 

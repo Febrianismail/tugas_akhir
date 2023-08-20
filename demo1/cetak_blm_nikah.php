@@ -1,15 +1,15 @@
 <?php include '../konek.php'; ?>
 <?php
-if (isset($_GET['id_blm'])) {
-    $id = $_GET['id_blm'];
-    $sql = "SELECT * FROM t_blm_nikah  WHERE id_blm='$id'";
+if (isset($_GET['id_blm_nikah'])) {
+    $id = $_GET['id_blm_nikah'];
+    $sql = "SELECT * FROM t_blm_nikah  WHERE id_blm_nikah='$id'";
     $query = mysqli_query($konek, $sql);
     $data = mysqli_fetch_array($query, MYSQLI_BOTH);
-    $id = $data['id_blm'];
+    $id = $data['id_blm_nikah'];
     $nik = $data['nik'];
     $nama = $data['nama'];
     $nomorkk = $data['nomorkk'];
-    $tempat = $data['tempat'];
+    $tempat = $data['tempat_lahir'];
     $tgl = $data['tgl_lahir'];
     $tgl2 = $data['tanggal_request'];
     $format1 = date('Y', strtotime($tgl2));

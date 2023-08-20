@@ -28,7 +28,7 @@ $agama1 = $data['agama'];
 								<div class="form-group">
 									<label>NIK</label>
 									<input type="hidden" class="form-control" value="<?= $nik; ?>">
-									<input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+									<input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama</label>
@@ -45,14 +45,14 @@ $agama1 = $data['agama'];
 									<input type="hidden" class="form-control" value="<?= $tgl1 ?>">
 									<input type="date" name="tanggallahir" class="form-control" value="<?= $tgl1 ?>">
 								</div>
-								<div class="form-check">
-									<label>Jenis Kelamin</label><br />
+								<div class="form-group">
+									<label class="mb-2">Jenis Kelamin</label>
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="jk" value="laki_laki" checked="">
+										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Laki-Laki</span>
 									</label>
 									<label class="form-radio-label ml-3">
-										<input class="form-radio-input" type="radio" name="jk" value="perempuan">
+										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Perempuan</span>
 									</label>
 								</div>

@@ -9,46 +9,105 @@ if (!isset($_POST['tampilkan'])) {
 	$sql = "SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_sktm.acc,
-		data_request_sktm.keperluan,
-		data_request_sktm.request
+		t_skdu.acc,
+		t_skdu.keperluan,
+		t_skdu.request
 	FROM
 		data_user
-	INNER JOIN data_request_sktm ON data_request_sktm.nik = data_user.nik
-	WHERE data_request_sktm.status = 3
+	INNER JOIN t_skdu ON t_skdu.nik = data_user.nik
+	WHERE t_skdu.status = 3
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skd.acc,
-		data_request_skd.keperluan,
-		data_request_skd.request
+		t_sku.acc,
+		t_sku.keperluan,
+		t_sku.request
 	FROM
 		data_user
-	INNER JOIN data_request_skd ON data_request_skd.nik = data_user.nik
-	WHERE data_request_skd.status = 3
+	INNER JOIN t_sku ON t_sku.nik = data_user.nik
+	WHERE t_sku.status = 3
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skp.acc,
-		data_request_skp.keperluan,
-		data_request_skp.request
+		t_skck.acc,
+		t_skck.keperluan,
+		t_skck.request
 	FROM
 		data_user
-	INNER JOIN data_request_skp ON data_request_skp.nik = data_user.nik
-	WHERE data_request_skp.status = 3
+	INNER JOIN t_skck ON t_skck.nik = data_user.nik
+	WHERE t_skck.status = 3
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_sku.acc,
-		data_request_sku.keperluan,
-		data_request_sku.request
+		t_sktm.acc,
+		t_sktm.keperluan,
+		t_sktm.request
 	FROM
 		data_user
-	INNER JOIN data_request_sku ON data_request_sku.nik = data_user.nik
-	WHERE data_request_sku.status = 3
+	INNER JOIN t_sktm ON t_sktm.nik = data_user.nik
+	WHERE t_sktm.status = 3
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pernyataan.acc,
+		t_pernyataan.keperluan,
+		t_pernyataan.request
+	FROM
+		data_user
+	INNER JOIN t_pernyataan ON t_pernyataan.nik = data_user.nik
+	WHERE t_pernyataan.status = 3
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_keramaian.acc,
+		t_keramaian.keperluan,
+		t_keramaian.request
+	FROM
+		data_user
+	INNER JOIN t_keramaian ON t_keramaian.nik = data_user.nik
+	WHERE t_keramaian.status = 3
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_blm_nikah.acc,
+		t_blm_nikah.keperluan,
+		t_blm_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_blm_nikah ON t_blm_nikah.nik = data_user.nik
+	WHERE t_blm_nikah.status = 3
+	
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pindah_nikah.acc,
+		t_pindah_nikah.keperluan,
+		t_pindah_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_pindah_nikah ON t_pindah_nikah.nik = data_user.nik
+	WHERE t_pindah_nikah.status = 3
+	";
+	$query = mysqli_query($konek, $sql);
+} elseif (isset($_POST['tampilkan'])) {
+	$tahun = isset($_POST['tahun']) ? $_POST['tahun'] : '';
+	$sql = "SELECT
+		data_user.nik,
+		data_user.nama,
+		t_sktm.acc,
+		t_sktm.keperluan,
+		t_sktm.request
+	FROM
+		data_user
+	INNER JOIN t_sktm ON t_sktm.nik = data_user.nik
+	WHERE year(t_sktm.acc) = '$tahun'
 	UNION
 	SELECT
 		data_user.nik,
@@ -59,54 +118,74 @@ if (!isset($_POST['tampilkan'])) {
 	FROM
 		data_user
 	INNER JOIN t_skdu ON t_skdu.nik = data_user.nik
-	WHERE t_skdu.status = 3
-	";
-	$query = mysqli_query($konek, $sql);
-} elseif (isset($_POST['tampilkan'])) {
-	$tahun = isset($_POST['tahun']) ? $_POST['tahun'] : '';
-	$sql = "SELECT
-		data_user.nik,
-		data_user.nama,
-		data_request_sktm.acc,
-		data_request_sktm.keperluan,
-		data_request_sktm.request
-	FROM
-		data_user
-	INNER JOIN data_request_sktm ON data_request_sktm.nik = data_user.nik
-	WHERE year(data_request_sktm.acc) = '$tahun'
+	WHERE year(t_skdu.acc) = '$tahun'
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skp.acc,
-		data_request_skp.keperluan,
-		data_request_skp.request
+		t_sku.acc,
+		t_sku.keperluan,
+		t_sku.request
 	FROM
 		data_user
-	INNER JOIN data_request_skp ON data_request_skp.nik = data_user.nik
-	WHERE year(data_request_skp.acc) = '$tahun'
+	INNER JOIN t_sku ON t_sku.nik = data_user.nik
+	WHERE year(t_sku.acc) = '$tahun'
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_sku.acc,
-		data_request_sku.keperluan,
-		data_request_sku.request
+		t_skck.acc,
+		t_skck.keperluan,
+		t_skck.request
 	FROM
 		data_user
-	INNER JOIN data_request_sku ON data_request_sku.nik = data_user.nik
-	WHERE year(data_request_sku.acc) = '$tahun'
+	INNER JOIN t_skck ON t_skck.nik = data_user.nik
+	WHERE year(t_skck.acc) = '$tahun'
 	UNION
 	SELECT
 		data_user.nik,
 		data_user.nama,
-		data_request_skd.acc,
-		data_request_skd.keperluan,
-		data_request_skd.request
+		t_keramaian.acc,
+		t_keramaian.keperluan,
+		t_keramaian.request
 	FROM
 		data_user
-	INNER JOIN data_request_skd ON data_request_skd.nik = data_user.nik
-	WHERE year(data_request_skd.acc) = '$tahun'
+	INNER JOIN t_keramaian ON t_keramaian.nik = data_user.nik
+	WHERE year(t_keramaian.acc) = '$tahun'
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pernyataan.acc,
+		t_pernyataan.keperluan,
+		t_pernyataan.request
+	FROM
+		data_user
+	INNER JOIN t_pernyataan ON t_pernyataan.nik = data_user.nik
+	WHERE year(t_pernyataan.acc) = '$tahun'
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_pindah_nikah.acc,
+		t_pindah_nikah.keperluan,
+		t_pindah_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_pindah_nikah ON t_pindah_nikah.nik = data_user.nik
+	WHERE year(t_pindah_nikah.acc) = '$tahun'
+	UNION
+	SELECT
+		data_user.nik,
+		data_user.nama,
+		t_blm_nikah.acc,
+		t_blm_nikah.keperluan,
+		t_blm_nikah.request
+	FROM
+		data_user
+	INNER JOIN t_blm_nikah ON t_blm_nikah.nik = data_user.nik
+	WHERE year(t_blm_nikah.acc) = '$tahun'
+	
 	";
 	$query = mysqli_query($konek, $sql);
 }
@@ -142,6 +221,9 @@ if (!isset($_POST['tampilkan'])) {
 									<option value="2019">2019</option>
 									<option value="2020">2020</option>
 									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+									<option value="2024">2024</option>
 								</select>
 								<div class="form-group">
 									<input type="submit" name="tampilkan" value="Tampilkan" class="btn btn-primary btn-sm">

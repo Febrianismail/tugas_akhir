@@ -3,16 +3,16 @@
 <script src="js/jquery-2.1.3.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <?php
-if (isset($_GET['id_blm'])) {
-    $id = $_GET['id_blm'];
-    $sql = "SELECT * FROM t_blm_nikah  WHERE id_blm='$id'";
+if (isset($_GET['id_blm_nikah'])) {
+    $id = $_GET['id_blm_nikah'];
+    $sql = "SELECT * FROM t_blm_nikah  WHERE id_blm_nikah='$id'";
     $query = mysqli_query($konek, $sql);
     $data = mysqli_fetch_array($query, MYSQLI_BOTH);
-    $id = $data['id_blm'];
+    $id = $data['id_blm_nikah'];
     $nik = $data['nik'];
     $nama = $data['nama'];
     $nomorkk = $data['nomorkk'];
-    $tempat = $data['tempat'];
+    $tempat = $data['tempat_lahir'];
     $tgl = $data['tgl_lahir'];
     $tgl2 = $data['tanggal_request'];
     $format1 = date('Y', strtotime($tgl2));
@@ -81,7 +81,7 @@ if (isset($_GET['id_blm'])) {
                                 </select><br>
                                 <!-- <input type="date" name="tgl_acc" class="form-control"> -->
                                 <input type="submit" name="ttd" value="Kirim" class="btn btn-primary btn-sm">
-                                <a href="cetak_blm_nikah.php?id_blm=<?= $id; ?>" class="btn btn-primary btn-sm">Cetak</a>
+                                <a href="cetak_blm_nikah.php?id_blm_nikah=<?= $id; ?>" class="btn btn-primary btn-sm">Cetak</a>
                                 <!-- <div class="form-group">
                                                     <a href="cetak_skd.php?id_request_skd=<?php $id; ?>">
                                                         Cetak
@@ -95,7 +95,7 @@ if (isset($_GET['id_blm'])) {
                         <?php
                         if (isset($_POST['ttd'])) {
                             $cetak = $_POST['dicetak'];
-                            $update = mysqli_query($konek, "UPDATE t_blm_nikah SET keterangan='$cetak', status=3 WHERE id_blm=$id");
+                            $update = mysqli_query($konek, "UPDATE t_blm_nikah SET keterangan='$cetak', status=3 WHERE id_blm_nikah=$id");
                             if ($update) {
                                 echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>";
                                 echo '<meta http-equiv="refresh" content="3; url=?halaman=permohonan_surat">';

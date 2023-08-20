@@ -28,22 +28,23 @@ $alamat1 = $data['alamat'];
 								<div class="form-group">
 									<label>NIK</label>
 									<input type="hidden" class="form-control" value="<?= $nik; ?>">
-									<input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
+									<input type="number" name="nik" class="form-control" value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
 									<label>Nama Lengkap</label>
 									<input type="hidden" class="form-control" value="<?= $nama; ?>">
 									<input type="text" name="nama" class="form-control" value="<?= $nama; ?>">
 								</div>
+
 								<div class="form-group">
 									<label class="mb-2">Jenis Kelamin</label>
-									<br />
+									<br>
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $jk; ?>" checked="">
+										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Laki-Laki</span>
 									</label>
 									<label class="form-radio-label ml-3">
-										<input class="form-radio-input" type="radio" name="jk" value="<?= $jk; ?>">
+										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Perempuan</span>
 									</label>
 								</div>
@@ -137,9 +138,9 @@ if (isset($_POST['kirim'])) {
 
 	$sql = "INSERT INTO t_sku (nama, jk, tempat, tgl_lahir, agama, status_perkawinan, kewarganegaraan, pendidikan, pekerjaan,nik, alamat, keperluan, berlaku_tgl, berdasarkan_keterangan, nik_user) VALUES ('$namalengkap', '$jk', '$tempatlahir', '$tgllahir', '$agamainput', '$statusKawin', '$kewarganegaraan', '$pendidikan', '$pekerjaan', '$nik', '$alamat', '$keperluan', '$berlaku_tanggal', '$berdasarkan_keterangan', '$nik_user')";
 
-	$query = mysqli_query($konek, $sql) or die(mysqli_error());
 
-	if ($query) {
+
+	if ($konek->query($sql) === TRUE) {
 		$_SESSION['nik_sku'] = $nik;
 		echo "<script language='javascript'>swal('Selamat...', 'Kirim Berhasil', 'success');</script>";
 		echo '<meta http-equiv="refresh" content="3; url=?halaman=scansku">';

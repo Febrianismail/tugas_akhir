@@ -185,7 +185,7 @@ if (isset($_GET['id_pernyataan'])) {
     </table>
     <br>
     <br>
-    <table border="0" align="center">
+    <table border="0" align="right">
         <tr>
             <th></th>
             <th width="100px"></th>

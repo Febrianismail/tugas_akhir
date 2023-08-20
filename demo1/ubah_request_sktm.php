@@ -11,18 +11,20 @@ if (isset($_GET['id_sktm'])) {
 	$id = $data['id_sktm'];
 	$nik = $data['nik'];
 	$nama = $data['nama'];
-	$jk = $data['jk'];
-	$tempat = $data['tempat'];
-	$tgl_lahir = $data['tgl_lahir'];
+	$nomorkk = $data['nomorkk'];
+	$tempat1 = $data['tempat'];
+	$tgl = $data['tgl_lahir'];
 	$agama = $data['agama'];
-	$status_perkawinan = $data['status_perkawinan'];
-	$kewarganegaraan = $data['kewarganegaraan'];
-	$pendidikan = $data['pendidikan'];
-	$pekerjaan = $data['pekerjaan'];
+	$jekel = $data['jk'];
 	$alamat = $data['alamat'];
+	$surat_perkawinan = $data['status_perkawinan'];
+	$pekerjaan = $data['pekerjaan'];
 	$keperluan = $data['keperluan'];
-	$berlaku_tgl = $data['berlaku_tgl'];
+	$pendidikan = $data['pendidikan'];
+	$tujuan = $data['tujuan'];
 	$berdasarkan_keterangan = $data['berdasarkan_keterangan'];
+
+	$berlaku_tgl = $data['berlaku_tgl'];
 }
 ?>
 <div class="page-inner">
@@ -31,133 +33,134 @@ if (isset($_GET['id_sktm'])) {
 			<form method="POST" enctype="multipart/form-data">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title">FORM TAMBAH REQUEST SURAT KETERANGAN USAHA</div>
+						<div class="card-title">UBAH REQUEST SURAT KETERANGAN TIDAK MAMPU</div>
 					</div>
 					<div class="card-body">
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group">
 									<label>NIK</label>
+
 									<input type="text" name="nik" class="form-control" value="<?= $nik; ?>">
 								</div>
 								<div class="form-group">
-									<label>Nama Lengkap</label>
+									<label>Nama</label>
+
 									<input type="text" name="nama" class="form-control" value="<?= $nama; ?>">
+								</div>
+								<div class="form-group">
+									<label>Nomor KK</label>
+									<input type="text" name="nomorkk" class="form-control" value="<?= $nomorkk; ?>">
+								</div>
+
+								<div class=" form-group">
+									<label>Tempat Lahir</label>
+									<input type="text" name="tempatlahir" class="form-control" value="<?= $tempat1; ?>">
+								</div>
+								<div class="form-group">
+									<label>Tanggal Lahir</label>
+									<input type="hidden" class="form-control" value="<?= $tgl; ?>">
+									<input type="date" name="tanggallahir" class="form-control" value="<?= $tgl; ?>">
 								</div>
 								<div class="form-group">
 									<label class="mb-2">Jenis Kelamin</label>
 									<br />
 									<label class="form-radio-label">
-										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jk == 'Laki-Laki') ? 'checked' : '' ?>>
+										<input class="form-radio-input" type="radio" name="jk" value="Laki-Laki" <?= ($jekel == 'Laki-Laki') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Laki-Laki</span>
 									</label>
 									<label class="form-radio-label ml-3">
-										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jk == 'Perempuan') ? 'checked' : '' ?>>
+										<input class="form-radio-input" type="radio" name="jk" value="Perempuan" <?= ($jekel == 'Perempuan') ? 'checked' : '' ?>>
 										<span class="form-radio-sign">Perempuan</span>
 									</label>
 								</div>
-
-								<div class="form-group">
-									<label>Tempat Lahir</label>
-									<input type="text" name="tempatlahir" class="form-control" value="<?= $tempat; ?>">
-								</div>
-								<div class="form-group">
-									<label>Tanggal Lahir</label>
-									<input type="date" name="tanggallahir" class="form-control" value="<?= $tgl_lahir; ?>">
-								</div>
-
 								<div class="form-group">
 									<label>Agama</label>
 									<input type="text" name="agama" class="form-control" value="<?= $agama; ?>">
 								</div>
-
 								<div class="form-group">
 									<label>Status Perkawinan</label>
-									<input type="text" name="statusperkawinan" class="form-control" placeholder="Apa anda sudah nikah ? " value="<?= $status_perkawinan ?>">
+									<input type="text" name="statusperkawinan" class="form-control" value="<?= $surat_perkawinan; ?>">
 								</div>
-
 								<div class="form-group">
-									<label>Kewarganegaraan</label>
-									<input type="text" name="kewarganegaraan" class="form-control" value="<?= $kewarganegaraan ?>">
+									<label>pekerjaan</label>
+									<input type="text" name="pekerjaan" class="form-control" value="<?= $pekerjaan; ?>">
 								</div>
-
+								<div class="form-group">
+									<label>Alamat </label>
+									<input type="text" name="alamat" class="form-control" value="<?= $alamat; ?>">
+								</div>
 								<div class="form-group">
 									<label>Pendidikan</label>
-									<input type="text" name="pendidikan" class="form-control" value="<?= $pendidikan ?>">
+									<input type="text" name="pendidikan" class="form-control" value="<?= $pendidikan; ?>">
 								</div>
-
 								<div class="form-group">
-									<label>Pekerjaan</label>
-									<input type="text" name="pekerjaan" class="form-control" placeholder="pekerjaan anda " value="<?= $pekerjaan ?>">
+									<label>Keperluan </label>
+									<input type="text" name="keperluan" class="form-control" value="<?= $keperluan; ?>">
 								</div>
-
 								<div class="form-group">
-									<label>Alamat</label>
-									<input type="text" name="alamat" class="form-control" placeholder="Alamat " value="<?= $alamat ?>">
+									<label>Tujuan </label>
+									<input type="text" name="tujuan" class="form-control" value="<?= $tujuan; ?>">
 								</div>
-
-								<div class="form-group">
-									<label>Keperluan</label>
-									<input type="text" name="keperluan" class="form-control" placeholder="Keperluan" value="<?= $keperluan ?>">
-								</div>
-
 								<div class="form-group">
 									<label>Berlaku Tanggal</label>
-									<input type="date" name="berlaku_tanggal" class="form-control" value="<?= $berlaku_tgl ?>">
+									<input type="date" name="berlakutanggal" class="form-control" value="<?= $berlaku_tgl; ?>">
 								</div>
-
 								<div class="form-group">
 									<label>Berdasarkan Keterangan RT/RW</label>
-									<input type="text" name="berdasarkan_keterangan" class="form-control" value="<?= $berdasarkan_keterangan ?>">
+									<input type="text" name="keteranganrt_rw" class="form-control" value="<?= $berdasarkan_keterangan; ?>">
 								</div>
+
 
 							</div>
 
 						</div>
 					</div>
-					<div class="card-action">
-						<button name="ubah" class="btn btn-success">Ubah</button>
-						<a href="?halaman=beranda" class="btn btn-default">Batal</a>
-					</div>
+				</div>
+				<div class="card-action">
+					<button name="ubah" class="btn btn-success">Ubah</button>
+					<a href="?halaman=beranda" class="btn btn-default">Batal</a>
 				</div>
 		</div>
-		</form>
 	</div>
+	</form>
+</div>
 </div>
 <?php
 if (isset($_POST['ubah'])) {
 
-	$nik = $_POST['nik'];
-	$namalengkap = $_POST['nama'];
-	$jk = $_POST['jk'];
+	$nik1 = $_POST['nik'];
+	$nama1 = $_POST['nama'];
+	$nomorkk1 = $_POST['nomorkk'];
 	$tempatlahir = $_POST['tempatlahir'];
-	$tgllahir = $_POST['tanggallahir'];
-	$agamainput = $_POST['agama'];
-	$statusKawin = $_POST['statusperkawinan'];
-	$kewarganegaraan = $_POST['kewarganegaraan'];
-	$pendidikan = $_POST['pendidikan'];
+	$tgl = $_POST['tanggallahir'];
+	$jeniskelamin = $_POST['jk'];
+	$agama1 = $_POST['agama'];
+	$status_perkawinan1	 = $_POST['statusperkawinan'];
 	$pekerjaan = $_POST['pekerjaan'];
 	$alamat = $_POST['alamat'];
+	$pendidikan = $_POST['pendidikan'];
 	$keperluan = $_POST['keperluan'];
-	$berlaku_tanggal = $_POST['berlaku_tanggal'];
-	$berdasarkan_keterangan = $_POST['berdasarkan_keterangan'];
+	$tujuan = $_POST['tujuan'];
+	$berlakutgl = $_POST['berlakutanggal'];
+	$keterangan = $_POST['keteranganrt_rw'];
 
-	$sql = "UPDATE t_sku SET
-    nama='$namalengkap',
-    jk='$jk',
+	$sql = "UPDATE t_sktm SET
+    nama='$nama1',
+    jk='$jeniskelamin',
     tempat='$tempatlahir',
-    tgl_lahir='$tgllahir',
-    agama='$agamainput',
-    status_perkawinan='$statusKawin',
-    kewarganegaraan='$kewarganegaraan',
+    tgl_lahir='$tgl',
+    agama='$agama1',
+    status_perkawinan='$status_perkawinan1',
+    tujuan='$tujuan',
     pendidikan='$pendidikan',
     pekerjaan='$pekerjaan',
     alamat='$alamat',
     keperluan='$keperluan',
-    berlaku_tgl='$berlaku_tanggal',
-    berdasarkan_keterangan='$berdasarkan_keterangan',
-    nik='$nik' 
-	WHERE id_sku=$id";
+    berlaku_tgl='$berlakutgl',
+    berdasarkan_keterangan='$keterangan',
+    nik='$nik1' 
+	WHERE id_sktm=$id";
 	$query = mysqli_query($konek, $sql);
 
 	if ($query) {
